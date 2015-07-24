@@ -2,11 +2,8 @@
 ## functions do
 
 ## Write a short comment describing this function
-# 1. set the value of the matrix
-# 2. get the value of the matrix
-# 3. set the value of inverse of the matrix
-# 4. get the value of inverse of the matrix
-
+# 1. set and get the value of the matrix
+# 2. set and get the value of inverse of the matrix
 
 makeCacheMatrix <- function(x = matrix()) { inv <- NULL
     set <- function(y) {
@@ -14,25 +11,25 @@ makeCacheMatrix <- function(x = matrix()) { inv <- NULL
         inv <<- NULL
     }
     get <- function() x
-    setinverse <- function(inverse) inv <<- inverse
-    getinverse <- function() inv
-    list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
+    setinver <- function(inverse) inv <<- inverse
+    getinver <- function() inv
+    list(set=set, get=get, setinver=setinver, getinver=getinver)
 
 }
 
 
 
 
-# This function assumes that the matrix is always invertible.
+# Below function provides the matrix as iverse
 
-cacheSolve <- function(x, ...) {inv <- x$getinverse()
+cacheSolve <- function(x, ...) {inv <- x$getinver()
     if(!is.null(inv)) {
         message("getting cached data.")
         return(inv)
     }
     data <- x$get()
     inv <- solve(data)
-    x$setinverse(inv)
+    x$setinver(inv)
     inv
         ## Return a matrix that is the inverse of 'x'
 }
